@@ -11,20 +11,21 @@
         }
 
         .td2 input {
-           margin-right: 75px;
+           margin-right: 70px;
         }
 
         .verde {
             color: green;
             font-weight: bold;
             font-family: Arial, Helvetica, sans-serif;
+            margin-left: 2px;
         }
 
         .vermelho_margin {
             color: red;
             font-family: Arial, Helvetica, sans-serif;
             font-style: italic;
-            margin-left: 75px;
+            margin-left: 40px;
         }
 
 
@@ -42,7 +43,7 @@
         }
 
         .pequeno {
-            width: 80px;
+            width: 85px;
         }
 
         input[type = "button"] {
@@ -53,6 +54,14 @@
         input[type="file"]::file-selector-button {
             border-radius:3px;
             border: 1px solid gray;
+        }
+
+        select {
+            margin-left: 5px;
+        }
+
+        .grande {
+            width: 240px;
         }
 
         
@@ -66,7 +75,7 @@
     <table>
         <tr>
             <td class="verde"><label for="">Nome completo:</label></td>
-            <td><input class="" type="text"></td>
+            <td><input class="grande" type="text"></td>
         </tr>
         <tr>
             <td class="verde"><label for="">Login:</label></td>
@@ -139,7 +148,7 @@
 
     <table>
         <tr>
-            <td class="td1">
+            <td class="">
                 <label class="verde">Foto atual:</label>
                 <input  class="vermelho_margin" type="file">
             </td>
@@ -157,12 +166,12 @@
     <label class="verde">Gostaria de fazer comentários?</label><br>
     <table>
         <tr>
-            <td><textarea name="" id="" rows="7" cols="40">Faça seu comentário aqui</textarea></td>
+            <td><textarea name="" id="" rows="7" cols="40">Faça seus comentários aqui</textarea></td>
         </tr>
         <tr>
             <td class="td2">
                 <input type="button" value="Enviar">
-                <input type="button" value="Limpar">
+                <input  type="reset" value="Limpar">
             </td>
             
            
