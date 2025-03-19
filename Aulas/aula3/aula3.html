@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <label for="ra">RA:</label>
+                    <input type="text" name="ra" id="ra">
+                    <p id="mensagem"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="nome">Nome completo:</label>
+                    <input type="text" name="nome" id="nome">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" id="senha">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button onclick="validar()">Enviar</button>
+                    <button>Limpar</button>
+                </td>
+            </tr>
+            
+        </table>
+
+    
+    </form>
+
+    <script>
+        //Checar o formato do RA do aluno (se o comprimento é de 9 caracteres; se são todos caracteres numéricos; se os 4 primeiros formam um ano de 1999 a 2021).
+        function validar() {
+            let ra = document.getElementById("ra").value;
+        }
+    </script>
+    
+</body>
+</html>
