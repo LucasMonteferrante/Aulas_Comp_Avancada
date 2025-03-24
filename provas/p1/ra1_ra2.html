@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prova 1</title>
+  <link rel="icon" href="data:,">
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -16,14 +17,21 @@
       font-family: 'Courier New', Courier, monospace;
     }
 
-    .grande {width: 400px;}
-    .pequeno{width: 100px;}
+    .grande {
+      width: 400px;
+    }
 
-    table {margin: auto;}
+    .pequeno {
+      width: 100px;
+    }
+
+    table {
+      margin: auto;
+    }
 
     td:first-child {
-      text-align: right; 
-      padding-right: 0px; 
+      text-align: right;
+      padding-right: 0px;
     }
 
     td button.submit-btn {
@@ -32,20 +40,42 @@
       margin-right: auto;
     }
 
-    button{font-weight: bold;}
-
+    button {
+      font-weight: bold;
+    }
   </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-  <script> 
-    console.log("Script Carregado");
+  <script>
+  
+$(document).ready(function() {
+  // Intercepta o envio do formulário
+  $('#form').submit(function(event) {
+      // Impede o envio padrão do formulário
+      event.preventDefault();
+
+      // Validação simples (pode ser expandida conforme necessário)
+      var nome = $('#nome').val();
+      
+      if(nome === "") {
+        alert("O campo nome não foi preenchido!");
+        return;
+      }
+
+      alert('Formulário enviado com sucesso!\nNome: ' + nome);
 
     
-  </script>
+  });
+});
 
   
+  </script>
+
+
 </head>
 
 <body>
+
   <form id="form">
     <table>
       <tr>
@@ -81,7 +111,7 @@
         <td><button id="limpar" type="reset">Limpar</button></td>
       </tr>
     </table>
-      
+
 
   </form>
 </body>
