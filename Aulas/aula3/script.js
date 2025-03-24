@@ -12,6 +12,5 @@ function validarFormulario() {
     return false;
   }
 
-  if(ra.lengh() != 9)
-  
+  if(ra.lenth
 }
