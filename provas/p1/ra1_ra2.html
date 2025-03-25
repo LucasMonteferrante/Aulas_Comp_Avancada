@@ -43,26 +43,71 @@
     button {
       font-weight: bold;
     }
+
+    p {
+      text-align: center;
+      color: red;
+    }
   </style>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <script>
   
 $(document).ready(function() {
-  // Intercepta o envio do formulário
   $('#form').submit(function(event) {
-      // Impede o envio padrão do formulário
       event.preventDefault();
-
-      // Validação simples (pode ser expandida conforme necessário)
-      var nome = $('#nome').val();
+    
       
-      if(nome === "") {
-        alert("O campo nome não foi preenchido!");
-        return;
+      const email = $('#email').val();
+      const senha = $('#senha').val();
+      
+      //a
+      const nome = $('#nome').val().trim();
+      const palavras = nome.split(/\s+/);
+      let mensagem = $('#mensagem');
+
+      if(nome === "" || palavras.length < 2 || /\d/.test(nome)) {
+        mensagem.text('Nome não pode ser vazio, conter número e ter menos de duas palavras')
+        return
       }
 
-      alert('Formulário enviado com sucesso!\nNome: ' + nome);
+      //b-cpf
+      const cpf = $('#cpf').val().trim();
+      const apenasNumeros = /^\d+$/;
+
+      if(cpf === '' || !apenasNumeros.test(cpf) || cpf.length !== 11){
+        mensagem.text('O campo cpf não pode ser vazio, conter apenas números e ter 11 digitos')
+        return
+      }
+
+      //b-rg
+      const rg = $('#rg').val().trim();
+      
+      if(rg === '' || !apenasNumeros.test(rg) || rg.length < 7){
+        mensagem.text('O campo rg não pode ser vazio, conter apenas números e ter pelo menos 7 digitos')
+        return
+      }
+
+      //c
+      const ano_entrada = $('#ano_entrada').val().trim();
+      const ano_saida = $('#ano_saida').val().trim();
+      let anoAtual = 2025;
+
+      if (ano_entrada === '' || !apenasNumeros.test(ano_entrada) || parseInt(ano_entrada) > anoAtual){
+        mensagem.text('O ano de entrada é obrigatório, deve conter apenas números e não pode ser maior que ' + anoAtual);
+        return
+      }
+
+      if(ano_saida !== '' && (!apenasNumeros.test(ano_saida) || parseInt(ano_saida) > anoAtual || parseInt(ano_entrada) > parseInt(ano_saida))) {
+      mensagem.text('Se preenchido, o ano de saída deve conter apenas números, não ser maior que o ano de entrada e não pode ser maior que ' + anoAtual);
+      return;
+      }
+
+
+  
+
+
+    alert('Formulário enviado com sucesso!\nNome: ' + nome);
 
     
   });
@@ -114,6 +159,7 @@ $(document).ready(function() {
 
 
   </form>
+  <p id="mensagem"></p>
 </body>
 
 </html>
