@@ -131,15 +131,15 @@
         }
 
         $.ajax({
-          url: 'https://jsonplaceholder.typicode.com/posts', 
+          url: 'https://jsonplaceholder.typicode.com/posts',
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(dadosFormulario),
           success: function (response) {
-           
+
             $('#mensagem').text('');
             console.log('Dados enviados com sucesso', response);
-          }, 
+          },
           error: function (xhr, status, error) {
             console.log('Erro no envio: ' + error);
             $('#mensagem').text('Erro no envio!');
