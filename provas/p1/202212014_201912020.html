@@ -54,7 +54,7 @@
   <script>
 
     $(document).ready(function () {
-      $('#form').submit(function (event) {
+      $('#form').on('submit', function (event) {
         event.preventDefault();
 
 
@@ -120,6 +120,35 @@
           return
         }
 
+        var dadosFormulario = {
+          nome: nome,
+          cpf: cpf,
+          rg: rg,
+          ano_entrada: ano_entrada,
+          ano_saida: ano_saida,
+          email: email,
+          senha: senha
+        }
+
+        $.ajax({
+          url: 'https://jsonplaceholder.typicode.com/posts', 
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify(dadosFormulario),
+          success: function (response) {
+           
+            $('#mensagem').text('');
+            console.log('Dados enviados com sucesso', response);
+          }, 
+          error: function (xhr, status, error) {
+            console.log('Erro no envio: ' + error);
+            $('#mensagem').text('Erro no envio!');
+          }
+
+        });
+
+
+
 
 
         alert('Formulário enviado com sucesso!\nNome: ' + nome);
@@ -175,6 +204,7 @@
 
   </form>
   <p id="mensagem"></p>
+
 </body>
 
 </html>
