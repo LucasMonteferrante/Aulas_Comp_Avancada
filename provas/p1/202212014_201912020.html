@@ -105,7 +105,6 @@
         const apenasLetras = /^[A-Za-zÀ-ÿ]+@[A-Za-zÀ-ÿ]+\.[A-Za-zÀ-ÿ]+(\.[A-Za-zÀ-ÿ]+)*$/;
 
 
-
         if (email === '' || !apenasLetras.test(email)) {
           mensagem.text('O campo email não pode ser vazio, deve conter apenas letras, possuir @, e depois dele, pelo menos duas palavras separadas por ponto.');
           return
